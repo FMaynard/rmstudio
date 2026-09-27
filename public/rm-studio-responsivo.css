@@ -1,0 +1,132 @@
+/* ==========================================================================
+   RM STUDIO - FOLHA DE ESTILO RESPONSIVA (CELULAR, TABLET E COMPUTADOR)
+   Fundo Preto (#050505) • Estética Analógica Hi-Fi • Grade de Vinis
+   ========================================================================== */
+
+:root {
+  --rm-bg-black: #050505;
+  --rm-bg-card: #0d0d10;
+  --rm-bg-elevated: #16161b;
+  --rm-text-primary: #f4f4f6;
+  --rm-text-secondary: #a1a1aa;
+  --rm-amber: #f59e0b;
+  --rm-copper: #ea580c;
+  --rm-emerald: #10b981;
+  --rm-border: rgba(255, 255, 255, 0.09);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body.rm-body {
+  background-color: var(--rm-bg-black);
+  color: var(--rm-text-primary);
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  padding-bottom: 110px;
+}
+
+.rm-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.rm-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(5, 5, 5, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rm-border);
+  padding: 0.875rem 0;
+}
+
+.rm-header-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+/* 1. CELULAR (Mobile First - até 639px): 1 Coluna */
+.rm-tracks-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.rm-track-card {
+  background: var(--rm-bg-card);
+  border: 1px solid var(--rm-border);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.rm-track-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(245, 158, 11, 0.45);
+}
+
+.rm-cover-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #09090b;
+  overflow: hidden;
+}
+
+.rm-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rm-card-body {
+  padding: 1.125rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+/* 2. TABLET (640px até 1199px): 2 a 3 Colunas */
+@media (min-width: 640px) {
+  .rm-container {
+    padding: 0 1.5rem;
+  }
+  .rm-header-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .rm-tracks-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 860px) {
+  .rm-tracks-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* 3. COMPUTADOR / DESKTOP (1200px+): 4 Colunas */
+@media (min-width: 1200px) {
+  .rm-container {
+    padding: 0 2rem;
+  }
+  .rm-tracks-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.75rem;
+  }
+}
